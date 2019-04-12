@@ -1,8 +1,8 @@
-
-# js-Ricardo Betancourt JR
-cambio 1
-cambio 2 pepito
-cambio 3 pepito
-cambio seno 
-Cambio coseno
-cambio 4 
+# Eguez-Sarzosa-Vicente-AdrianjR
+Cambio 1
+Cambio 2 Pepito
+Cambio 3 Pepito
+Cambio Seno 
+Cambio Coseno
+Cambio 4
+sad
