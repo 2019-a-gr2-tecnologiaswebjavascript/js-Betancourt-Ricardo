@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { CarritoService } from '../servicios/carrito/carrito.service';
-
+import {ItemCarritoCompras} from '../interfaces/item-carrito-conoras';
 
 @Component({
   selector: 'app-item-galeria',
@@ -48,10 +48,11 @@ export class ItemGaleriaComponent implements OnInit, OnDestroy {
     console.log('Terminó');
   }
 
-  agregarCarrito(valorCarrito){
-    const itemCarrito = {
+  agregarCarrito(valorCarrito:string){
+    const itemCarrito :ItemCarritoCompras = {
       valor : valorCarrito,
-      nombreTienda: this.titulo
+      nombreTienda: this.titulo,
+      fechaCompra : new Date()
     };
     this._carritoService.carritoCompras.splice(0,0,itemCarrito);
     console.log(this._carritoService.carritoCompras);
@@ -75,13 +76,29 @@ export class ItemGaleriaComponent implements OnInit, OnDestroy {
     }else{
       this.url = bielas
       this.cambioBiela.emit(true);
-      this.color = "biela"
+      this.color = "biela";
   }
 
+  
+
+  /*class CarritoCompraClass implements CarritoComprasInt{
+    nombreTienda: string;
+    valor: string;
+    fechacompra?:Date;
+  }
+*/
+    
+  
+
+
 
 }
 
 }
+
+
+
+  
 
 /*
 @DecoratorsClase() //->Funciones que se ejecutan antes de clases, atributos, constructores, metodos
@@ -109,4 +126,14 @@ class Usuario{
 */
 
 
+/*  
+Cuando agrego un item al arreglo debo guardar su cantidad
+En el item nos hace falta
 
+id = valor
+1) verificar si ya existe ese item -> valor
+1.1 Existe
+  aumentamos el contador
+1.2 No existe
+  creamos el contador y lo seteamos el 1
+*/
