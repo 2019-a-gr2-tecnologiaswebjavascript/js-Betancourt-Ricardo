@@ -1,11 +1,25 @@
-<h1 class="rojo">Titulo {{title}}</h1>
-<!-- {{interpolacion}}  -->
-<app-item-galeria 
-    *ngFor="let flor of arregloFloresJs"
+<h1 class="rojo">Título {{title}}</h1>
+<!-- {{interpolacion}}-->
+
+<!-- Para ver variables en pantalla (Debug)-->
+<pre>
+  {{_carritoService.carritoCompras | json}}
+</pre>
+
+<button (click)="mostrar(true)">Mostrar</button>
+
+<button (click)="mostrar(false)">Ocultar</button>
+
+<!--<div [hidden]="!estaMostrando"> solo en apps web-->
+<div *ngIf="estaMostrando">
+  <app-item-galeria 
+    *ngFor="let flor of arregloFloresJS"
+    [titulo]="flor.titulo"
     [textoBoton]="flor.nombre"
     [nombreItem]="flor.descripcion"
+    [notas]="flor.notas"
     (cambioChela)="cambioChela($event)"
-    (cambioCerveza)="cambioCerveza($event)"
->
-
-</app-item-galeria>
+    (cambioBiela)="cambioBiela($event)"
+  >
+  </app-item-galeria>
+</div>

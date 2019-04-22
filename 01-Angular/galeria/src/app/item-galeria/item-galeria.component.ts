@@ -1,88 +1,112 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { CarritoService } from '../servicios/carrito/carrito.service';
+
 
 @Component({
   selector: 'app-item-galeria',
   templateUrl: './item-galeria.component.html',
   styleUrls: ['./item-galeria.component.css']
 })
-export class ItemGaleriaComponent implements OnInit {
+export class ItemGaleriaComponent implements OnInit, OnDestroy {
 
-  title = 'Licoreria';
+  title = "Licoreria";
 
   @Input()
-  textoBoton;   
+  titulo;
 
+  @Input()
+  textoBoton;
+  
   @Input()
   nombreItem;
 
   @Output()
-  cambioChela: EventEmitter<boolean> = new EventEmitter()
+  cambioChela:EventEmitter<boolean> = new EventEmitter()
 
   @Output()
-  cambioCerveza: EventEmitter<boolean> = new EventEmitter()
+  cambioBiela:EventEmitter<boolean> = new EventEmitter()
 
-  url = "http://www.dna-autoparts.com/23121-thickbox_default/bielas-forjadas-eagle-para-sr20det.jpg";
+  url = "https://http2.mlstatic.com/biela-de-motor-original-peugeot-207-14-nafta-D_NQ_NP_782765-MLA26076182164_092017-F.jpg"
 
-  notas = [1,2,3,4,5,6,7,8,9,10]
+  @Input()
+  notas;
 
-  constructor() { }
+  color = "rojo"
+
+  //Dependency
+  //Injection
+  constructor(private readonly _carritoService:CarritoService) { //ModificadorDeAcceso, inmutabilidad, alias:tipoDeDato 
+    
+  }
 
   ngOnInit() {
+    console.log("Empezo");
+    console.log(this._carritoService.carritoCompras);
+  }
+
+  ngOnDestroy(){
+    console.log('Terminó');
+  }
+
+  agregarCarrito(valorCarrito){
+    const itemCarrito = {
+      valor : valorCarrito,
+      nombreTienda: this.titulo
+    };
+    this._carritoService.carritoCompras.splice(0,0,itemCarrito);
+    console.log(this._carritoService.carritoCompras);
   }
 
   alertar(){
-    alert('Auxilio me desmayo: ' + this.nombreItem);
+    alert('Auxilio me desmayo ' + this.nombreItem);
   }
 
   alertarBlur(){
-    alert('Alertar blur');
+    alert('Alertar blur')
   }
 
   cambiarImagen(){
-    const cervezas = "https://img.chilango.com/2016/01/cervezas-cervezas-cervezas.jpg"
-    const chelas = "http://www.dna-autoparts.com/23121-thickbox_default/bielas-forjadas-eagle-para-sr20det.jpg"
-    if(this.url === cervezas){
-      this.url = chelas;
+    const bielas = "https://http2.mlstatic.com/biela-de-motor-original-peugeot-207-14-nafta-D_NQ_NP_782765-MLA26076182164_092017-F.jpg"
+    const chelas = "https://media-cdn.tripadvisor.com/media/photo-s/09/0f/ad/dd/chelas.jpg"
+    if (this.url == bielas){
+      this.url = chelas
       this.cambioChela.emit(true);
+      this.color= "chela";
     }else{
-      this.url = cervezas;
-      this.cambioCerveza.emit(true);
-    }
-    // var url2 = "http://img.chilango.com/2016/01/cervezas-cervezas-cervezas.jpghttp://img.chilango.com/2016/01/cervezas-cervezas-cervezas.jpg"
-    // let url3 = "http://img.chilango.com/2016/01/cervezas-cervezas-cervezas.jpghttp://img.chilango.com/2016/01/cervezas-cervezas-cervezas.jpg"
-    // this.url = url1;
+      this.url = bielas
+      this.cambioBiela.emit(true);
+      this.color = "biela"
   }
 
+
+}
 
 }
 
 /*
-@DecoratorsClase() 
+@DecoratorsClase() //->Funciones que se ejecutan antes de clases, atributos, constructores, metodos
 class Usuario{
-  @DecoratorsVariable()
-  private nombre = 'Adrian';
+  @DecoratorAtributo()
+  private nombre = 'Jose';
+    
   constructor(@DecoratorsConstructor() nombre){
 
   }
-
   @DecoratorsMetodo()
- metodoPublico(){
+  metodoPublico(){
 
- }
- private metodoPrivado(){
+  }
 
- }
- protected metodoProtected(){
+  private metodoPrivado(){
 
- }
+  }
+
+  protected metodoProtected(){
+
+  }
+
 }
 */
-
-
-
-
-
-
 
 
 

@@ -3,16 +3,23 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ItemGaleriaComponent } from './item-galeria/item-galeria.component';
+import { CarritoService } from './servicios/carrito/carrito.service';
+import { MostrarCarritoComponent } from './mostrar-carrito/mostrar-carrito.component';
 
 @NgModule({
-  declarations: [
+  declarations: [ //Componentes
     AppComponent,
-    ItemGaleriaComponent
+    ItemGaleriaComponent,
+    MostrarCarritoComponent
   ],
-  imports: [
-    BrowserModule
+  imports: [ //Otros modulos
+    BrowserModule //Comparte la funcionalidad de las directiva
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ //Servicios
+    CarritoService
+  ],
+  bootstrap: [ //Componente principal
+    AppComponent
+  ]
 })
 export class AppModule { }
