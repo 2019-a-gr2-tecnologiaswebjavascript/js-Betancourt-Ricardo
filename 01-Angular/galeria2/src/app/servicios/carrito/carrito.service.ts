@@ -9,12 +9,14 @@ export class CarritoService {
         itemCarrito:ItemCarritoCompras
         ):ItemCarritoCompras[]{
         const identificador = itemCarrito.valor;
-        let indiceItem = -1;
+        const nombreTienda = itemCarrito.nombreTienda;
+        let indiceItem = -1;                 
         const existeElItem = this.carritoCompras
             .some(
                 (item:ItemCarritoCompras, indice)=>{
-                    if(item.valor == identificador){
-                        indiceItem = indice;
+                    if(item.valor == identificador && nombreTienda == item.nombreTienda){
+                        indiceItem = indice; 
+                        
                         return true;
                     }else{
                         return false;
