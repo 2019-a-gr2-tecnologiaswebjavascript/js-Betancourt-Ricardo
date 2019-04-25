@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy,  } from '@angular/core';
 import { CarritoService } from '../servicios/carrito/carrito.service';
+import {ItemCarritoCompras} from '../interfaces/item-carrito-compras';
 
 @Component({
   selector: 'app-item-galeria',
@@ -8,7 +9,7 @@ import { CarritoService } from '../servicios/carrito/carrito.service';
 })
 export class ItemGaleriaComponent implements OnInit,OnDestroy {
 
-  title = 'Licoreria';
+  static title = 'Licoreria';
 
   @Input()
   titulo; 
@@ -71,19 +72,31 @@ export class ItemGaleriaComponent implements OnInit,OnDestroy {
     console.log('"Termino"');
   }
 
-  agregarCarrito(valorCarrito:number){
+  agregarCarrito(valorCarrito:string){
     // this._carritoService.carritoCompras.push(itemCarrito);
-    const itemCarrito = {
+    const itemCarrito:ItemCarritoCompras = {
       valor: valorCarrito,
-      nombreTienda: this.titulo
+      nombreTienda: this.titulo,
+      fechaCompra:new Date()
     };
-    this._carritoService.carritoCompras
-                        .splice(0,0,itemCarrito);
-    console.log(this._carritoService.carritoCompras);
+    const respuestaCarrito = this._carritoService
+          .agregarCarritoDeCompras(itemCarrito);
+    console.log(respuestaCarrito);
+    
   }
 
 
 }
+
+
+/*
+class CarritoCompraClass implements CarritoComprasInterface {
+  valor:string;
+  nombreTienda:string;
+  fechaCompra?:Date;
+}
+*/
+
 
 /*
 @DecoratorsClase() 
@@ -161,3 +174,39 @@ ngOnDestroy -> OnDestroy
   *  listaMaterias
      _ () seleccionoMateria
 */
+/*
+
+Problema:
+Cuando agrege un item al arreglo, debo
+de guardar su cantidad.
+En el item nos hace falta, la cantidad.
+
+id -> Valor
+
+1) Verificar si ya existe ese "item"-> valor
+
+  Existe? -> Buscar en el arreglo si existe ese valor   
+
+ 1.1 Existe) 
+  Aumentamos el contador
+
+ 1.2 No existe)
+  Creamos el contador y lo seteamos en 1
+
+ boton componente item
+ -> input ()  -> output
+ C1 ->  
+ C2 -> 
+ S1 -> 
+ S2 -> 
+
+
+
+
+
+
+
+
+
+
+*/ 
