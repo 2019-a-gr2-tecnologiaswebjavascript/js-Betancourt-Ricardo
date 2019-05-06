@@ -41,6 +41,7 @@ export class AppComponent {
       notas:[
         'Papitas',
         'Empanadas',
+        'Hot Dog',
       ]
     },
     {
