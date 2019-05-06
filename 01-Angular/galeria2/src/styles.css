@@ -1,4 +1,82 @@
 /* You can add global styles to this file, and also import other style files */
-.rojo{
-    color:red;
+.row{background: white}
+.top{
+float: right;
+text-align: right;
+padding-left: 50px;
+
+}
+
+
+.firstcol{
+
+    padding-left: 200px;
+}
+.cbIdioma.cbIdioma:hover{
+    color: skyblue;
+}
+
+.rowtop{
+    border-bottom: 0.5px #F1F1F1 solid ;
+    margin-bottom: 2px;
+    
+}
+.contenedor{
+    border-bottom: 0.5px #F1F1F1 solid ;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+}
+
+.item-menu{
+    color:#7A7A7A;
+    margin: 10px;
+    float: left;
+    text-size-adjust: 8px;
+}
+
+.item-menu:hover{
+  color: skyblue;
+}
+
+
+
+
+.texto-derecha{
+    text-align: left;
+}
+
+body {
+    font-family: Open Sans,sans-serif;
+    background: #ECE9E9;
+}
+
+.rowimg{
+    background: #ECE9E9;
+}
+.imagencentral{
+margin-top: 30px;    
+margin-left: 175px;
+margin-right: 200px;
+width: 70%;
+height: 200px;
+align-content: center;
+}
+.centro{
+    background: #ECE9E9;
+    margin: 10px;
+}
+
+
+.item-producto{
+padding: 5px;
+align-items: center;
+margin-left: 150px;
+
+}
+
+.img-producto{
+    margin: 5px;
+    width: 70%;
+    height: 70%;
 }
