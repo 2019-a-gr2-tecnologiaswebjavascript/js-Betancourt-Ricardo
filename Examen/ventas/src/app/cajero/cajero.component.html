@@ -1,0 +1,79 @@
+<div class="espTop">
+  <div class="container">
+    <div class="row justify-content-md-center espBot espTop">
+      <div class="col-md-12 titulo">
+        INGRESO DE COMPRAS
+      </div>
+    </div>
+    <div class="row justify-content-md-center espBot espTop">
+        <div class="col-md-12">
+          <div class="row justify-content-md-center espBot espTop" >
+            <div class="col-md-7">
+              <form  #formularioGrupo="ngForm" novalidate (submit)= "guardar(formularioGrupo); formularioGrupo.reset(); limpiarArg();">
+                <div class="row justify-content-md-center espBot espTop">
+                  <div class="col-md-6">
+                      <input class= " form-control etiqueta" id= "nombre" name ="nombreC" type="text" [(ngModel)]="nombre" placeholder="Nombre">
+                  </div>
+                  <div class="col-md-6">
+                      <input class= " form-control etiqueta" id= "cedula" name ="cedulaC" type="text" [(ngModel)]="cedula" placeholder="Cedula/Ruc">
+                  </div>
+                </div>
+                <div class="row justify-content-md-center espBot espTop">
+                  <div class="col-md-6">
+                      <input class= " form-control etiqueta" id= "direccion" name ="direccionC" type="text" [(ngModel)]="direccion" placeholder="Dirección">
+                  </div>
+                  <div class="col-md-6">
+                      <input class= " form-control etiqueta" id= "telefono" name ="telefonoC" type="text" [(ngModel)]="telefono" placeholder="Telefono">
+                  </div>
+                </div>
+                <div class="row justify-content-md-center espBot espTop">
+                  <div class="col-md-12">
+                      <input class= " form-control etiqueta" id= "correo" name ="correoC" type="text" [(ngModel)]="correo" placeholder="Correo Electronico">
+                  </div>
+                </div>
+                <div class="row justify-content-md-center espBot espTop">
+                    <div class="col-md-12 centrar">
+                         LISTA DE PRODUCTOS POR COMPRAR
+                    </div>
+                  </div>
+                <div class="row justify-content-md-center espBot espTop" *ngFor="let producto of productosComprados; index as i">
+                    <div class="col-lg-12 centrar"> 
+                        <a class="btn btn-info  form-control" (click)="eliminar(i)" >ELIMINAR {{producto.nombre}}  ${{producto.costo}}</a>
+                    </div>
+                </div>
+                <div class="row justify-content-md-center espBot espTop">
+                    <div class="col-md-12 centrar">
+                        <button class="btn btn-primary form-control" type="submit">Realizar Compra</button>
+                    </div>
+                  </div>
+
+              </form>
+              
+            </div>
+            <div class="col-md-5">
+                <div class="row justify-content-md-center espBot espTop">
+                  <div class="col-lg-12"> 
+                    Nombre Cajero:  {{nombreCajero}}
+                  </div>
+                </div>
+                <div class="row justify-content-md-center espBot espTop">
+                    <div class="col-lg-12 espTop espBot"> 
+                      TOTAL: {{total}}
+                    </div>
+                  </div>
+                  <div class="row justify-content-md-center espBot espTop">
+                    <div class="col-lg-12 centrar"> 
+                       LISTA DE PRODUCTOS
+                    </div>
+                  </div>
+                  <div class="row justify-content-md-center espBot espTop" *ngFor="let producto of productos">
+                      <div class="col-lg-12 centrar"> 
+                        <a class="btn btn-info  form-control" (click)="procomprados(producto)" >AGREGAR {{producto.nombre}}  ${{producto.costo}}</a>
+                      </div>
+                    </div>
+            </div>
+          </div>         
+        </div>
+      </div>
+  </div>
+</div>

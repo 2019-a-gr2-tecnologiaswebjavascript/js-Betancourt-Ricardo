@@ -1,0 +1,27 @@
+.espTop{
+    margin-top: 5px; 
+
+}
+
+.espBot{
+    margin-bottom:5px;
+}
+
+.centrar{
+    text-align: center;
+}
+
+.etiqueta{
+    font-size: 12px
+}
+.titulo{
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 6px;
+    background: #343A40;
+    color:white;
+}
+
+.formulario{
+    padding-bottom: 60px;
+}

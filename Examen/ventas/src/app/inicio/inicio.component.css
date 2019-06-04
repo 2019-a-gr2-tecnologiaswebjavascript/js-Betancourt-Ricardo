@@ -1,0 +1,25 @@
+.login-link{
+    text-decoration: none !important;
+    padding: 5px;
+    font-weight: 400;
+    font-size: 20px;
+    color: #120c86;
+    background-color: skyblue;
+    border-radius: 6px;
+    border: 2px solid #0016b0; 
+    margin: 5px;
+    margin-left: 40px;
+}
+.login-link:hover{
+color: black;
+font-weight: bold;
+margin-left: 38px;
+}
+
+
+.row {
+    margin: 10px;
+}
+.form-control{
+    width: 170px;
+}

@@ -1,0 +1,51 @@
+<div class="espTop">
+    <div class="container">
+      <div class="row justify-content-md-center menu espBot">
+         <div class="col-md-9 "> 
+           <input type="text" class="form-control" placeholder="Buscar Aplicacion" [(ngModel)]="query" >
+         </div>
+         <div class="col-md-3"> 
+            <a routerLink="/crearProducto/{{idSO}}" class ="btn btn-info form-control">CREAR</a> 
+          </div>
+      </div>
+      <div class="row justify-content-md-center menu espBot">
+        <div class="col-md-9 "> 
+          
+        </div>
+        <div class="col-md-3"> 
+            
+         </div>
+     </div>
+     <div class="row justify-content-md-center menu espBot espTop">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" class="centrar">Nombre</th>
+            <th scope="col" class="centrar">Version</th>
+            <th scope="col" class="centrar">Fecha Lanzamiento</th>
+            <th scope="col" class="centrar">peso GB</th>
+            <th scope="col" class="centrar">url Descarga</th>
+            <th scope="col" class="centrar">costo</th>
+            <th scope="col" class="centrar">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr *ngFor="let producto of productos | search:query" >
+              <th scope="row" class="centrar" >{{producto.nombre}}</th>
+              <td class="centrar">{{producto.version}}</td>
+              <td class="centrar">{{producto.fechaLanzamiento}}</td>
+              <td class="centrar">{{producto.pesoGigas}}</td>
+              <td  class="centrar">{{producto.urlDescarga}} </td>
+              <td class="centrar">{{producto.costo}}</td>
+              <td class="centrar">
+                <a  (click)="eliminar(producto)"  class="btn btn-danger etiqueta"  >ELIMINAR </a>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+     </div>
+    </div> 
+   </div>
+  

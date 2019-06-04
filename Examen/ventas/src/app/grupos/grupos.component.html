@@ -1,0 +1,51 @@
+
+ <div class="espTop">
+  <div class="container">
+    <div class="row justify-content-md-center menu espBot">
+       <div class="col-md-9 "> 
+         <input type="text" class="form-control" placeholder="Buscar S.O" [(ngModel)]="query" >
+       </div>
+       <div class="col-md-3"> 
+          <a routerLink="/crearGrupo" class ="btn btn-info form-control">CREAR</a> 
+        </div>
+    </div>
+    <div class="row justify-content-md-center menu espBot">
+      <div class="col-md-9 "> 
+        
+      </div>
+      <div class="col-md-3"> 
+          
+       </div>
+   </div>
+   <div class="row justify-content-md-center menu espBot espTop">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" class="centrar">Nombre</th>
+          <th scope="col" class="centrar">Version</th>
+          <th scope="col" class="centrar">Fecha Lanzamiento</th>
+          <th scope="col" class="centrar">peso GB</th>
+          <th scope="col" class="centrar">Instalado</th>
+          <th scope="col" class="centrar">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr *ngFor="let grupo of grupos | search:query" >
+            <th scope="row" class="centrar" >{{grupo.nombre}}</th>
+            <td class="centrar">{{grupo.version}}</td>
+            <td class="centrar">{{grupo.fechaLanzamiento}}</td>
+            <td class="centrar">{{grupo.pesoGigas}}</td>
+            <td *ngIf="grupo.instalado" class="centrar"> <input type="radio" disabled checked></td>
+            <td *ngIf="!grupo.instalado" class="centrar"> <input type="radio" disabled></td>
+            <td class="centrar">
+              <a routerLink="/productos/{{grupo.idSO}}" class="btn btn-secondary etiqueta">Productos</a>
+              <a  (click)="eliminar(grupo)"  class="btn btn-danger etiqueta"  >ELIMINAR </a>
+            </td>
+          </tr>
+        
+      </tbody>
+    </table>
+   </div>
+  </div> 
+ </div>

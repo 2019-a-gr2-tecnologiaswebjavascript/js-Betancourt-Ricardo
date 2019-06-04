@@ -10,6 +10,7 @@ export class AppComponent {
   title = 'Floreria';
   claseTitulo = 'rojo';
   estaMostrando = false;
+  precio = '23.50'
 
   arregloFlores = [
     new Flor("Papitas","A lo bestia"),

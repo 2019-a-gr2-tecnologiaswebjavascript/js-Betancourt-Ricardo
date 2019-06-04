@@ -1,0 +1,53 @@
+<div class="espTop">
+    <div class="container">
+        <div class="row justify-content-md-center espBot espTop " >
+            <div class="col-md-12 titulo">
+              LISTA DE COMPRAS
+            </div>
+          </div>
+      <div class="row justify-content-md-center menu espBot">
+         <div class="col-md-9 "> 
+           <input type="text" class="form-control centrar" placeholder="Buscar Facturas" [(ngModel)]="query" >
+         </div>
+         <div class="col-md-3"> 
+            
+          </div>
+      </div>
+      <div class="row justify-content-md-center menu espBot">
+        <div class="col-md-9 "> 
+          
+        </div>
+        <div class="col-md-3"> 
+            
+         </div>
+     </div>
+     <div class="row justify-content-md-center menu espBot espTop">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" class="centrar">Nombre Cajero</th>
+            <th scope="col" class="centrar">Cliente</th>
+            <th scope="col" class="centrar">Cedula</th>
+            <th scope="col" class="centrar">Telefono</th>
+            <th scope="col" class="centrar">Correo</th>
+            <th scope="col" class="centrar">Direccion</th>
+            <th scope="col" class="centrar">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr *ngFor="let compra of compras | search:query" >
+              <th scope="row" class="centrar" >{{compra.nombreCajero}}</th>
+              <td class="centrar">{{compra.nombre}}</td>
+              <td class="centrar">{{compra.cedula}}</td>
+              <td class="centrar">{{compra.telefono}}</td>
+              <td  class="centrar">{{compra.correo}} </td>
+              <td class="centrar">{{compra.direcciom}}</td>
+              <td class="centrar"> {{compra.total}} </td>             
+            </tr>          
+        </tbody>
+      </table>
+     </div>
+    </div> 
+   </div>
+  
