@@ -12,23 +12,23 @@
               <form  #formularioGrupo="ngForm" novalidate (submit)= "guardar(formularioGrupo); formularioGrupo.reset(); limpiarArg();">
                 <div class="row justify-content-md-center espBot espTop">
                   <div class="col-md-6">
-                      <input class= " form-control etiqueta" id= "nombre" name ="nombreC" type="text" [(ngModel)]="nombre" placeholder="Nombre">
+                      <input class= " form-control etiqueta" id= "nombre" name ="nombreC" type="text" [(ngModel)]="nombre" placeholder="Nombre" required>
                   </div>
                   <div class="col-md-6">
-                      <input class= " form-control etiqueta" id= "cedula" name ="cedulaC" type="text" [(ngModel)]="cedula" placeholder="Cedula/Ruc">
+                      <input class= " form-control etiqueta" id= "cedula" name ="cedulaC" type="text" [(ngModel)]="cedula" placeholder="Cedula/Ruc" required maxlength="10" minlength="10">
                   </div>
                 </div>
                 <div class="row justify-content-md-center espBot espTop">
                   <div class="col-md-6">
-                      <input class= " form-control etiqueta" id= "direccion" name ="direccionC" type="text" [(ngModel)]="direccion" placeholder="Dirección">
+                      <input class= " form-control etiqueta" id= "direccion" name ="direccionC" type="text" [(ngModel)]="direccion" placeholder="Dirección" required>
                   </div>
                   <div class="col-md-6">
-                      <input class= " form-control etiqueta" id= "telefono" name ="telefonoC" type="text" [(ngModel)]="telefono" placeholder="Telefono">
+                      <input class= " form-control etiqueta" id= "telefono" name ="telefonoC" type="text" [(ngModel)]="telefono" placeholder="Telefono" required >
                   </div>
                 </div>
                 <div class="row justify-content-md-center espBot espTop">
                   <div class="col-md-12">
-                      <input class= " form-control etiqueta" id= "correo" name ="correoC" type="text" [(ngModel)]="correo" placeholder="Correo Electronico">
+                      <input class= " form-control etiqueta" id= "correo" name ="correoC" type="text" [(ngModel)]="correo" placeholder="Correo Electronico" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$">
                   </div>
                 </div>
                 <div class="row justify-content-md-center espBot espTop">
@@ -43,7 +43,7 @@
                 </div>
                 <div class="row justify-content-md-center espBot espTop">
                     <div class="col-md-12 centrar">
-                        <button class="btn btn-primary form-control" type="submit">Realizar Compra</button>
+                        <button class="btn btn-primary form-control" type="submit" [disabled]="formularioGrupo.invalid">Realizar Compra</button>
                     </div>
                   </div>
 

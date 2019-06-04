@@ -7,7 +7,7 @@
       </div>
       <div class="row justify-content-md-center espBot espTop " >
           <form  #formularioGrupo="ngForm"
-          novalidate
+          validate
           (submit)= "guardarProducto(formularioGrupo); formularioGrupo.reset();"
           >
             <div class ="row justify-content-md-center espBot espTop">
@@ -15,7 +15,7 @@
                     <label  for="nombre">Nombre:</label>
                   </div>
                   <div class="col-md-9">
-                      <input class= " form-control" id= "nombre" name ="nombreA" type="text" [(ngModel)]="nombre">
+                      <input class= " form-control" id= "nombre" name ="nombreA" type="text" [(ngModel)]="nombre" required>
                   </div>
             </div>
             <div class ="row justify-content-md-center espBot espTop">
@@ -23,7 +23,7 @@
                     <label  for="version">version:</label>
                   </div>
                   <div class="col-md-9">
-                      <input class= " form-control" id= "version" name ="versionA" type="number"  [(ngModel)]="version" >
+                      <input class= " form-control" id= "version" name ="versionA" type="number"  [(ngModel)]="version" required>
                   </div>
             </div>
             <div class ="row justify-content-md-center espBot espTop">
@@ -31,7 +31,7 @@
                     <label  for="fecha">Fecha Lanzamiento:</label>
                 </div>
                   <div class="col-md-6 ">
-                      <input class= "form-control etiqueta" id= "fecha" name ="fechaA" type="Date" [(ngModel)]="fecha">
+                      <input class= "form-control etiqueta" id= "fecha" name ="fechaA" type="Date" [(ngModel)]="fecha"required>
                   </div>
             </div>
             <div class ="row justify-content-md-center espBot espTop">
@@ -47,7 +47,7 @@
                     <label  for="peso">url Descargar:</label>
                   </div>
                   <div class="col-md-7 ">
-                      <input class= "form-control" id= "url" name ="urlA" type="text"  [(ngModel)]="url">
+                      <input class= "form-control" id= "url" name ="urlA" type="text"  [(ngModel)]="url" >
                   </div>
             </div>
             <div class ="row justify-content-md-center espBot espTop">
@@ -55,12 +55,12 @@
                     <label  for="peso">costo:</label>
                   </div>
                   <div class="col-md-9 ">
-                      <input class= "form-control" step= "0.01" id= "costo" name ="costoA" type="number"  [(ngModel)]="costo">
+                      <input class= "form-control" step= "0.01" id= "costo" name ="costoA" type="number"  [(ngModel)]="costo" required>
                   </div>
             </div> 
             <div class ="row justify-content-md-center espBot espTop">
                 <div class ="col-md-6">
-                  <button class="btn btn-primary form-control" type="submit">Agregar</button>
+                  <button class="btn btn-primary form-control" type="submit" [disabled]="formularioGrupo.invalid" >Agregar</button>
                 </div>
                 <div class = "col-md-6">
                   <button class="btn btn-primary form-control" type="reset">Limpiar</button>

@@ -2,7 +2,7 @@ import { NumberFormatStyle } from '@angular/common';
 
 export interface aplicacion{
     idA:number;
-    pesoGigas:number;
+    pesoGigas?:number;
     version:number;
     nombre:string;
     urlDescarga?:string;
