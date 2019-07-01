@@ -12,10 +12,11 @@ import { ListacomprasComponent } from './listacompras/listacompras.component';
 import { Routes, RouterModule } from '@angular/router';
 import { EstaLogueadoService } from './servicios/guards/esta-logueado.service';
 import { AuthService } from './servicios/auth/auth.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms' ;
 import { CrearGrupoComponent } from './crear-grupo/crear-grupo.component';
 import { SearchPipe } from './pipes/search';
 import { CrearProductoComponent } from './crear-producto/crear-producto.component';
+import { BodegaComponent } from './bodega/bodega.component';
 
 
 const appRoutes: Routes = [
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
   {path: 'cajero', component: CajeroComponent, canActivate:[EstaLogueadoService]},
   {path: 'listaCompras', component: ListacomprasComponent, canActivate:[EstaLogueadoService]},
   {path: 'crearGrupo', component: CrearGrupoComponent, canActivate:[EstaLogueadoService]},
-  {path: 'crearProducto/:idSO', component: CrearProductoComponent, canActivate:[EstaLogueadoService]}
+  {path: 'crearProducto/:idSO', component: CrearProductoComponent, canActivate:[EstaLogueadoService]},
+  {path: 'bodega', component: BodegaComponent}
 ];
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ const appRoutes: Routes = [
     ListacomprasComponent,
     CrearGrupoComponent,
     SearchPipe,
-    CrearProductoComponent
+    CrearProductoComponent,
+    BodegaComponent
   ],
   imports: [
     BrowserModule,
