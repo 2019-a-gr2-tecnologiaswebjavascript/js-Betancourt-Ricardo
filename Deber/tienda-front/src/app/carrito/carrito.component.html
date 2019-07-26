@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <app-producto-carrito class = "col-lg-2"
+    *ngFor = "let producto of carritoDeCompras"
+    [nombre] = "producto.nombreProducto"
+    [tienda] = "producto.nombreTienda"
+    [cantidad] = "producto.cantidad"></app-producto-carrito>
+  </div>
+</div>

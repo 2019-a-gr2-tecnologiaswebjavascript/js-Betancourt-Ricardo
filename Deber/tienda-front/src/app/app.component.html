@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <h1>Tienda con backend</h1>
+  </div>
+
+  <app-carrito class="row"></app-carrito>
+  
+  <app-tienda class="row"
+    *ngFor = "let tienda of listaTiendas"
+    [titulo] = "tienda.nombre"
+    [id] = "tienda.id"
+    [productos] = "tienda.arregloProductoTienda"
+    ></app-tienda>
+ 
+  <router-outlet></router-outlet>
+
+</div>
+

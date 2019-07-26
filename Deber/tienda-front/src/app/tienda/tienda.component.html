@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <h3>{{titulo}}</h3>
+  </div>
+  <div class="row">
+    <img src={{imageURL}} alt="imagenxD">
+  </div>
+  <div class="row">
+    <app-producto-tienda class="col-lg-2"
+    *ngFor = "let producto of detalleProductos"
+    [nombreProducto] = "producto.nombre"
+    [descripcion] = "producto.descripcion"
+    [tienda] = "this.titulo"></app-producto-tienda>
+  </div>
+  
+</div>
